@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+   <div class="calculator">
+    <form  >
+        <div class="display">
+            <input type="text" id="dis"  name="display">
+        </div>
+        <div>
+            <input type="button" value="AC" 
+            onclick="display.value=' '" class="operators">
+            <input type="button" value="DE" class="operators" onclick="display.value=display.value.toString().slice(0,-1)">
+            <input type="button" value="." class="operators" onclick="display.value+='.'">
+            <input type="button" value="/" class="operators" onclick="display.value+='/'">
+        </div>
+        <div>
+            <input type="button" value="7" onclick="display.value+='7'">
+            <input type="button" value="8" onclick="display.value+='8'">
+            <input type="button" value="9" onclick="display.value+='9'">
+            <input type="button" value="*" class="operators" onclick="display.value+='*'">
+        </div>
+        <div>
+            <input type="button" value="4" onclick="display.value+='4'">
+            <input type="button" value="5" onclick="display.value+='5'">
+            <input type="button" value="6" onclick="display.value+='6'">
+            <input type="button" value="-" class="operators" onclick="display.value+='-'">
+        </div>
+        <div>
+            <input type="button" value="1" onclick="display.value+='1' ">
+            <input type="button" value="2" onclick="display.value+='2'">
+            <input type="button" value="3" onclick="display.value+='3'">
+            <input type="button" value="+" class="operators" onclick="display.value+='+'">
+        </div>
+        <div class="ans">
+            <input type="button" value="00" onclick="display.value+='00'">
+            <input type="button" value="0" onclick="display.value+='0'">
+            <input type="button" value="=" class="operators" id="equal" 
+            onclick="cal()">
+        </div>
+
+    </form>
+   </div>
+    </div>
+    <script>
+       function cal()
+       {
+        let d=document.getElementById("dis");
+        d.value=eval(d.value);
+       }
+       document.addEventListener("keydown",function event(e)
+       {
+        if(e.key==="Enter")
+        {
+            
+            cal();
+
+            e.preventDefault();
+        }
+        
+       });
+       /*
+       function event(e)
+       {
+        if(e.keyCode===13)
+        {
+            alert("done");
+            cal();
+            e.preventDefault();
+        }
+       }*/
+    </script>
+</body>
+</html>
